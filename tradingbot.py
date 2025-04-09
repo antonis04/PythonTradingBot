@@ -14,13 +14,12 @@ ALPACA_CONFIG = {
 class MyStrategy(Strategy):
     parameters = {
         "symbol": "SPY",
-        "quantity": 1,
+        "quantity": 10,
         "side": "buy"
-
     }
 
     def initialize(self, symbol=""):
-        self.sleeptime = "180M"
+        self.sleeptime = "10M"
 
     def on_trading_iteration(self):
         symbol = self.parameters["symbol"]
@@ -28,6 +27,19 @@ class MyStrategy(Strategy):
         side = self.parameters["side"]
         order = self.create_order(symbol, quantity, side)
         self.submit_order(order)
+        self.sell_if_needed(symbol)
+
+    def sell_if_needed(self, symbol):
+        """
+        Sprawdza warunki sprzedaży i sprzedaje, jeśli to konieczne.
+        """
+        # Przykładowy warunek sprzedaży: cena zamknięcia spadła poniżej określonego progu
+        current_price = self.get_last_price(symbol)
+        sell_threshold = 400  # Próg sprzedaży (przykładowa wartość)
+
+        if current_price < sell_threshold:
+            sell_order = self.create_order(symbol, self.parameters["quantity"], "sell")
+            self.submit_order(sell_order)
 
 trader = Trader()
 broker = Alpaca(ALPACA_CONFIG)
@@ -41,8 +53,6 @@ strategy.run_backtest(
     backtesting_end,
     parameters={"symbol": "SPY"}
 )
-
-
 
 trader.add_strategy(strategy)
 trader.run_all()
