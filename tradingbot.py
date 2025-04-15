@@ -10,11 +10,10 @@ ALPACA_CONFIG = {
     # Set this to False to use a live account
     "PAPER": True
 }
-
 class MyStrategy(Strategy):
     parameters = {
         "symbol": "SPY",
-        "quantity": 10,
+        "quantity": 50,
         "side": "buy"
     }
 
