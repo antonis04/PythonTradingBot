@@ -13,7 +13,7 @@ ALPACA_CONFIG = {
 class MyStrategy(Strategy):
     parameters = {
         "symbol": "SPY",
-        "quantity": 50,
+        "quantity": 5,
         "side": "buy"
     }
 
