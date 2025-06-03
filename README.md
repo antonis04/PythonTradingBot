@@ -1,16 +1,23 @@
 # PythonTradingBot
 
-Welcome to **PythonTradingBot**! This repository contains code and (possibly) web content for a trading bot project.
+Welcome to **PythonTradingBot**! This repository contains the code for a trading bot written in Python, developed as a bachelor’s thesis project.
 
 ## Description
 
-A trading bot project intended as an educational resource or starting point for building automated trading systems. (Note: The main language detected is HTML. If the bot logic is in another language, please update this section.)
+PythonTradingBot is an educational project for an automated trading bot for financial markets, created as part of an engineering thesis. The code is modular and can serve as a base for further development of your own trading strategies.
 
 ## Features
 
 - Example trading strategies
-- (Optional) Web interface
-- Modular and extensible code
+- Generation of reports and statistics (CSV, HTML)
+- Easy code customization and extension
+- (Optional) Web interface for viewing results
+
+## Requirements
+
+- Python 3.8 or newer
+- Recommended libraries: pandas, numpy, matplotlib, (optional: flask, jupyter)
+- A detailed list of dependencies can be found in requirements.txt (if available)
 
 ## Getting Started
 
@@ -19,17 +26,24 @@ A trading bot project intended as an educational resource or starting point for 
    git clone https://github.com/antonis04/PythonTradingBot.git
    cd PythonTradingBot
    ```
-2. Open the README or code files for instructions.
-3. If there's a web interface, open `index.html` in your browser.
+2. Install the required libraries:
+   ```sh
+   pip install -r requirements.txt
+   ```
+3. Run the bot:
+   ```sh
+   python tradingbot.py
+   ```
+4. The results and reports will be available in the `logs/` directory.
 
-## Requirements
+## Project Structure
 
-- (Update based on actual code — e.g., Python version, libraries, or browser requirements)
+- `tradingbot.py` – main file with the bot logic
+- `logs/` – directory with generated reports and statistics
+- `README.md` – this file
 
-## Contributing
+## Contribution & License
 
-Contributions are welcome! Please open issues or submit pull requests to improve the project.
+This project was developed as a bachelor’s thesis. Suggestions and pull requests are welcome!
 
-## License
-
-[MIT](LICENSE)
+License: [MIT](LICENSE)
